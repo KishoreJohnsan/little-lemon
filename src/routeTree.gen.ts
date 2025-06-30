@@ -10,35 +10,11 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as ReservationsRouteImport } from './routes/reservations'
-import { Route as OrderRouteImport } from './routes/order'
-import { Route as MenuRouteImport } from './routes/menu'
-import { Route as LoginRouteImport } from './routes/login'
-import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
 
 const ReservationsRoute = ReservationsRouteImport.update({
   id: '/reservations',
   path: '/reservations',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const OrderRoute = OrderRouteImport.update({
-  id: '/order',
-  path: '/order',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const MenuRoute = MenuRouteImport.update({
-  id: '/menu',
-  path: '/menu',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const LoginRoute = LoginRouteImport.update({
-  id: '/login',
-  path: '/login',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const AboutRoute = AboutRouteImport.update({
-  id: '/about',
-  path: '/about',
   getParentRoute: () => rootRouteImport,
 } as any)
 const IndexRoute = IndexRouteImport.update({
@@ -49,50 +25,27 @@ const IndexRoute = IndexRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
-  '/about': typeof AboutRoute
-  '/login': typeof LoginRoute
-  '/menu': typeof MenuRoute
-  '/order': typeof OrderRoute
   '/reservations': typeof ReservationsRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
-  '/about': typeof AboutRoute
-  '/login': typeof LoginRoute
-  '/menu': typeof MenuRoute
-  '/order': typeof OrderRoute
   '/reservations': typeof ReservationsRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
-  '/about': typeof AboutRoute
-  '/login': typeof LoginRoute
-  '/menu': typeof MenuRoute
-  '/order': typeof OrderRoute
   '/reservations': typeof ReservationsRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/about' | '/login' | '/menu' | '/order' | '/reservations'
+  fullPaths: '/' | '/reservations'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/about' | '/login' | '/menu' | '/order' | '/reservations'
-  id:
-    | '__root__'
-    | '/'
-    | '/about'
-    | '/login'
-    | '/menu'
-    | '/order'
-    | '/reservations'
+  to: '/' | '/reservations'
+  id: '__root__' | '/' | '/reservations'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
-  AboutRoute: typeof AboutRoute
-  LoginRoute: typeof LoginRoute
-  MenuRoute: typeof MenuRoute
-  OrderRoute: typeof OrderRoute
   ReservationsRoute: typeof ReservationsRoute
 }
 
@@ -103,34 +56,6 @@ declare module '@tanstack/react-router' {
       path: '/reservations'
       fullPath: '/reservations'
       preLoaderRoute: typeof ReservationsRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/order': {
-      id: '/order'
-      path: '/order'
-      fullPath: '/order'
-      preLoaderRoute: typeof OrderRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/menu': {
-      id: '/menu'
-      path: '/menu'
-      fullPath: '/menu'
-      preLoaderRoute: typeof MenuRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/login': {
-      id: '/login'
-      path: '/login'
-      fullPath: '/login'
-      preLoaderRoute: typeof LoginRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/about': {
-      id: '/about'
-      path: '/about'
-      fullPath: '/about'
-      preLoaderRoute: typeof AboutRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/': {
@@ -145,10 +70,6 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
-  AboutRoute: AboutRoute,
-  LoginRoute: LoginRoute,
-  MenuRoute: MenuRoute,
-  OrderRoute: OrderRoute,
   ReservationsRoute: ReservationsRoute,
 }
 export const routeTree = rootRouteImport
