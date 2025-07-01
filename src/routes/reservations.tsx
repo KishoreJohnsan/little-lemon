@@ -1,10 +1,11 @@
 "use client";
 import ReservationForm from "@/components/reservationForm";
+import { Toast, ToastProps } from "@/components/toast";
 import { fetchAPI, submitAPI } from "@/lib/api";
 import { createFileRoute, useNavigate } from "@tanstack/react-router";
 import { format } from "date-fns";
 import { useReducer, useState } from "react";
-import { toast } from "sonner";
+import { toast as sonnerToast } from "sonner";
 
 export const Route = createFileRoute("/reservations")({
   component: Reservation,
@@ -16,6 +17,19 @@ const updateTimes = (availableTimes: string[], date: Date) => {
 };
 
 const initializeTimes = fetchAPI(new Date());
+
+function toast(toast: Omit<ToastProps, "id">) {
+  return sonnerToast.custom((id) => (
+    <Toast
+      id={id}
+      title={toast.title}
+      description={toast.description}
+      button={{
+        onClick: () => console.log("Button clicked"),
+      }}
+    />
+  ));
+}
 
 export default function Reservation() {
   const [availableTimes, dispatchOnDateChange] = useReducer(
@@ -40,23 +54,27 @@ export default function Reservation() {
       });
 
       if (resp) {
-        toast.success("Reservation confirmed", {
-          description: `A cozy table for ${formData["guest-count"]} awaits you on ${date} at ${time}. We look forward to welcoming you.`,
+        toast({
+          title: "Reservation confirmed",
+          description: `A cozy table for ${formData["guest-count"]} awaits you on ${date} at ${time}.`,
+          button: {
+            onClick: () => sonnerToast.dismiss(),
+          },
         });
         navigate({
           to: "/",
         });
       } else {
-        toast.error("Error in Reserving Table", {
-          description: `Please try again`,
+        sonnerToast.error("Error in Reserving Table", {
+          description: `Please try again later`,
         });
         navigate({
           to: "/",
         });
       }
     } catch (error) {
-      toast.error("Error in Reserving Table", {
-        description: `Please try again`,
+      sonnerToast.error("Error in Reserving Table", {
+        description: `Please try again later`,
       });
       navigate({
         to: "/",

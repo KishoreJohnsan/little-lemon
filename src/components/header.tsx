@@ -69,7 +69,7 @@ export default function Header1() {
             whileHover={{ scale: 1.05 }}
             transition={{ type: "spring", stiffness: 400, damping: 10 }}
           >
-            <Link href="/" className="flex items-center space-x-2" to={"/"}>
+            <Link className="flex items-center space-x-2" to={"/"}>
               <div className="flex h-12 w-12 items-center justify-center rounded-lg border-2 border-green-700">
                 <Citrus className="h-8 w-8 text-green-800 fill-yellow-300" />
               </div>
@@ -97,7 +97,7 @@ export default function Header1() {
           <div className="hidden items-center space-x-4 lg:flex">
             <Button effect="ringHover" variant="outline" className="text-md">
             <Link
-              className="font-medium text-foreground transition-colors duration-200 hover:text-green-700"
+              className="font-medium text-foreground transition-colors duration-200"
               to={"/"}
             >
               Order Online
@@ -118,6 +118,7 @@ export default function Header1() {
             className="rounded-lg p-2 transition-colors duration-200 hover:bg-muted lg:hidden"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             whileTap={{ scale: 0.95 }}
+            aria-label="Toggle Main Menu"
           >
             {isMobileMenuOpen ? (
               <X className="h-6 w-6" />

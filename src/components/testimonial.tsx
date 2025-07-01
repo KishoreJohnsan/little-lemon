@@ -89,7 +89,7 @@ export default function TestimonialCarousel({
 
   return (
     <section
-      className={cn('relative overflow-hidden py-10 lg:py-20 px-8', className)}
+      className={cn('relative overflow-hidden py-8 lg:py-12 px-8', className)}
     >
       <div className="absolute inset-0 -z-10">
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,hsl(var(--primary)/0.2),transparent_60%)]" />
@@ -173,9 +173,9 @@ export default function TestimonialCarousel({
                       </AvatarFallback>
                     </Avatar>
                     <div className="flex flex-col">
-                      <h4 className="whitespace-nowrap font-medium text-green-800">
+                      <h5 className="whitespace-nowrap font-medium text-green-800">
                         {testimonial.name}
-                      </h4>
+                      </h5>
                       <div className="flex items-center gap-2">
                         <p className="whitespace-nowrap text-sm text-primary/80">
                           {testimonial.username}

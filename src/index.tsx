@@ -7,7 +7,7 @@ import "@/styles/globals.css";
 import { routeTree } from './routeTree.gen'
 
 // Create a new router instance
-const router = createRouter({ routeTree, scrollRestoration:true, scrollRestorationBehavior:"smooth" })
+const router = createRouter({ routeTree, basepath:"/little-lemon/", scrollRestoration:true, scrollRestorationBehavior:"smooth" })
 
 // Register the router instance for type safety
 declare module '@tanstack/react-router' {
