@@ -112,7 +112,7 @@ export default function FooterGlow() {
         </nav>
       </div>
       <div className="relative z-10 mt-10 text-center text-md text-yellow-200 font-bold">
-        <span>&copy; 2025 Little Lemon. All rights reserved.</span>
+        <span>&copy; 2025 Little Lemon. All rights reserved. Made by <a className="decoration-black underline decoration-wavy underline-offset-4" href="https://github.com/KishoreJohnsan">SKJ</a></span>
       </div>
     </footer>
   );
