@@ -8,7 +8,6 @@
     "dev": "rsbuild dev --open",
     "preview": "rsbuild preview",
     "test": "jest",
-    "test:watch": "jest --watch",
     "test:coverage": "jest --coverage"
   },
   "dependencies": {
@@ -75,6 +74,10 @@
     "moduleNameMapper": {
       "^@/components/(.*)$": "<rootDir>/src/components/$1",
       "^@/lib/(.*)$": "<rootDir>/src/lib/$1"
-    }
+    },
+    "collectCoverage": true,
+    "coverageReporters": [
+      "text","html"
+    ]
   }
 }
