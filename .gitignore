@@ -20,3 +20,6 @@ dist/
 
 #backup
 backup
+
+#Jest
+coverage

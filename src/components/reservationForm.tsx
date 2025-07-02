@@ -90,9 +90,11 @@ const ReservationForm = ({
   return (
     <Card>
       <CardHeader>
-        <CardTitle className="lg:text-lg bg-gradient-to-b from-green-500 to-green-800 bg-clip-text text-transparent">An Evening to Remember</CardTitle>
+        <CardTitle className="lg:text-lg bg-gradient-to-b from-green-500 to-green-800 bg-clip-text text-transparent">
+          An Evening to Remember
+        </CardTitle>
         <CardDescription className="lg:text-md">
-          Celebrate life’s moments with authentic Mediterranean cuisine.
+          Celebrate life's moments with authentic Mediterranean cuisine.
         </CardDescription>
       </CardHeader>
       <CardContent>
@@ -108,7 +110,12 @@ const ReservationForm = ({
                 name="reservation-date"
                 render={({ field }) => (
                   <FormItem className="col-span-12 col-start-auto flex self-end flex-col gap-2 space-y-0 items-start">
-                    <FormLabel className="flex shrink-0">Date</FormLabel>
+                    <FormLabel
+                      className="flex shrink-0"
+                      htmlFor="reservation-date"
+                    >
+                      Date
+                    </FormLabel>
 
                     <div className="w-full">
                       <FormControl>
@@ -118,7 +125,6 @@ const ReservationForm = ({
                               variant={"outline"}
                               className="justify-start text-left font-normal w-full"
                               id="reservation-date"
-                              name=""
                             >
                               <CalendarIcon className="mr-2 h-4 w-4" />
                               {field.value ? (
@@ -131,7 +137,7 @@ const ReservationForm = ({
                             </Button>
                           </PopoverTrigger>
                           <PopoverContent className="w-auto p-0">
-                            <Calendar mode="single" onSelect={field.onChange} />
+                            <Calendar mode="single" onSelect={field.onChange}/>
                           </PopoverContent>
                         </Popover>
                       </FormControl>
@@ -146,22 +152,26 @@ const ReservationForm = ({
                 name="reservation-time"
                 render={({ field }) => (
                   <FormItem className="col-span-12 col-start-auto flex self-end flex-col gap-2 space-y-0 items-start">
-                    <FormLabel className="flex shrink-0">Time</FormLabel>
+                    <FormLabel
+                      className="flex shrink-0"
+                      htmlFor="reservation-time"
+                    >
+                      Time
+                    </FormLabel>
 
                     <div className="w-full">
                       <FormControl>
-                        <Select
-                          key="select-1"
-                          //id="reservation-time"
-                          {...field}
-                          onValueChange={field.onChange}
-                        >
-                          <SelectTrigger className="w-full ">
-                            <SelectValue placeholder="" />
+                        <Select {...field} onValueChange={field.onChange}>
+                          <SelectTrigger
+                            className="w-full"
+                            id="reservation-time"
+                            data-testid="reservation-time-options"
+                          >
+                            <SelectValue />
                           </SelectTrigger>
-                          <SelectContent>
+                          <SelectContent data-testid="time-select">
                             {availableTimes.map((timing) => (
-                              <SelectItem key={timing} value={timing}>
+                              <SelectItem key={timing} value={timing} data-testid="time-options">
                                 {timing}
                               </SelectItem>
                             ))}
@@ -179,7 +189,7 @@ const ReservationForm = ({
                 name="guest-count"
                 render={({ field }) => (
                   <FormItem className="col-span-12 col-start-auto flex self-end flex-col gap-2 space-y-0 items-start">
-                    <FormLabel className="flex shrink-0">
+                    <FormLabel className="flex shrink-0" htmlFor="guest-count">
                       Number of Guests
                     </FormLabel>
 
@@ -207,21 +217,20 @@ const ReservationForm = ({
                 name="occasion"
                 render={({ field }) => (
                   <FormItem className="col-span-12 col-start-auto flex self-end flex-col gap-2 space-y-0 items-start">
-                    <FormLabel className="flex shrink-0">
+                    <FormLabel className="flex shrink-0" htmlFor="occasion">
                       Special Occasion
                     </FormLabel>
 
                     <div className="w-full">
                       <FormControl>
                         <Select
-                          key="select-0"
-                          //id="occasion"
-                          //className=""
+                          key="occasion-options"
                           {...field}
                           onValueChange={field.onChange}
                         >
-                          <SelectTrigger className="w-full ">
-                            <SelectValue placeholder="" />
+                          <SelectTrigger className="w-full" id="occasion"
+                            data-testid="occasion-options">
+                            <SelectValue/>
                           </SelectTrigger>
                           <SelectContent>
                             <SelectItem key="none" value="none">
@@ -243,18 +252,23 @@ const ReservationForm = ({
                   </FormItem>
                 )}
               />
-              
+
               <FormField
-                name="submit-button-0"
+                name="submit-button"
                 render={() => (
                   <FormItem className="col-span-12 md:col-span-6 col-start-auto flex self-end flex-col gap-2 space-y-0 items-start">
-                    <FormLabel className="hidden shrink-0">Reserve Table</FormLabel>
+                    <FormLabel
+                      className="hidden shrink-0"
+                      htmlFor="submit-button"
+                    >
+                      Reserve Table
+                    </FormLabel>
 
                     <div className="w-full">
                       <FormControl>
                         <Button
-                          key="submit-button-0"
-                          id="submit-button-0"
+                          key="submit-button"
+                          id="submit-button"
                           className="w-full gap-4 py-6 lg:px-8 cursor-pointer bg-gradient-to-b from-yellow-400 to-amber-400 text-black lg:text-md"
                           effect="ringHover"
                           type="submit"
@@ -267,7 +281,6 @@ const ReservationForm = ({
                           ) : (
                             "Reserve Table"
                           )}
-                          
                         </Button>
                       </FormControl>
 
@@ -277,16 +290,21 @@ const ReservationForm = ({
                 )}
               />
               <FormField
-                name="reset-button-0"
+                name="reset-button"
                 render={() => (
                   <FormItem className="col-span-12 md:col-span-6 col-start-auto flex self-end flex-col gap-2 space-y-0 items-start">
-                    <FormLabel className="hidden shrink-0">Reset</FormLabel>
+                    <FormLabel
+                      className="hidden shrink-0"
+                      htmlFor="reset-button"
+                    >
+                      Reset
+                    </FormLabel>
 
                     <div className="w-full">
                       <FormControl>
                         <Button
-                          key="reset-button-0"
-                          id="reset-button-0"
+                          key="reset-button"
+                          id="reset-button"
                           className="w-full gap-4 py-6 lg:px-6 cursor-pointer lg:text-md"
                           type="reset"
                           variant="outline"
@@ -301,7 +319,6 @@ const ReservationForm = ({
                   </FormItem>
                 )}
               />
-             
             </div>
           </form>
         </Form>

@@ -21,7 +21,7 @@ export const About = () => (
               love, and the warmth of home. What started as a humble kitchen has
               grown into a space where old-world flavors meet modern creativity.
               Every dish we serve is a tribute to our heritage, reimagined with
-              a fresh twist to delight today’s palate. We invite you to join our
+              a fresh twist to delight today's palate. We invite you to join our
               family at the table, where every meal tells a story.
             </p>
           </div>

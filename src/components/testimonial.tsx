@@ -39,7 +39,7 @@ const defaultTestimonials = [
     "role": "Lifestyle Blogger"
   },
   {
-    "text": "The attention to detail in every dish is remarkable. It’s more than a meal—it’s a cultural experience.",
+    "text": "The attention to detail in every dish is remarkable. It's more than a meal—it's a cultural experience.",
     "name": "Lucas Meyer",
     "username": "@lucasnotes",
     "role": "Cultural Curator"
@@ -62,7 +62,7 @@ interface TestimonialProps {
 export default function TestimonialCarousel({
   testimonials = defaultTestimonials,
   title = 'Loved by Locals & Travelers Alike',
-  subtitle = 'Heartfelt words from guests who’ve tasted tradition and felt at home.',
+  subtitle = 'Heartfelt words from guests who`ve tasted tradition and felt at home.',
   autoplaySpeed = 3000,
   className,
 }: TestimonialProps) {
